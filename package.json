@@ -1,0 +1,37 @@
+{
+  "name": "saucedemo_playwright",
+  "version": "1.0.0",
+  "description": "Playwright E2E testing framework for Sauce Demo e-commerce platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report",
+    "install:browsers": "playwright install",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "keywords": [
+    "playwright",
+    "e2e",
+    "testing",
+    "typescript"
+  ],
+  "author": "Tetiana Yurchenko",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^10.0.0",
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^20.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1"
+  }
+}
