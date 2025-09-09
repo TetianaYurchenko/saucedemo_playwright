@@ -25,6 +25,7 @@
     "@faker-js/faker": "^10.0.0",
     "@playwright/test": "^1.55.0",
     "@types/node": "^20.0.0",
+    "monocart-reporter": "^2.9.21",
     "prettier": "^3.0.0",
     "typescript": "^5.0.0"
   },

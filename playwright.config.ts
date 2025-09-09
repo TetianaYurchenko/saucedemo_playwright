@@ -12,7 +12,13 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: [['html', { outputFolder: 'test-results', open: 'always' }]],
+  reporter: [
+    ['html', { outputFolder: 'test-results', open: 'always' }],
+    ['monocart-reporter', {
+            name: "Sauce Demo Test Report",
+            outputFile: './monocart-report/index.html'
+        }]
+  ],
   use: {
     baseURL: process.env.SAUCE_DEMO_BASE_URL,
     trace: 'on-first-retry',
