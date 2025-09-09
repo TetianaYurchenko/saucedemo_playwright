@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator } from "@playwright/test";
 
 export class LoginPage {
   readonly page: Page;
@@ -12,20 +12,20 @@ export class LoginPage {
     this.page = page;
 
     // Initialize locators
-  this.usernameInput = page.locator('[data-test="username"]');
-  this.passwordInput = page.locator('[data-test="password"]');
-  this.loginButton = page.locator('[data-test="login-button"]');
-  this.loginContainer = page.locator('[data-test="login-container"]');
-  this.loginError = page.locator('[data-test="error"]');
+    this.usernameInput = page.locator('[data-test="username"]');
+    this.passwordInput = page.locator('[data-test="password"]');
+    this.loginButton = page.locator('[data-test="login-button"]');
+    this.loginContainer = page.locator('[data-test="login-container"]');
+    this.loginError = page.locator('[data-test="error"]');
   }
 
   /**
    * Navigate to the login page
    */
   async goto() {
-  const baseUrl = process.env.SAUCE_DEMO_BASE_URL || '';
+    const baseUrl = process.env.SAUCE_DEMO_BASE_URL || "";
     await this.page.goto(baseUrl, {
-      waitUntil: 'domcontentloaded',
+      waitUntil: "domcontentloaded",
       timeout: 6000,
     });
   }
@@ -35,16 +35,16 @@ export class LoginPage {
    */
   async login(username?: string, password?: string) {
     // Ensure login container is visible
-    await this.loginContainer.waitFor({ state: 'visible' });
+    await this.loginContainer.waitFor({ state: "visible" });
 
     // Use default credentials from env if not specified
-    const user = username ?? process.env.SAUCE_DEMO_USERNAME ?? '';
-    const pass = password ?? process.env.SAUCE_DEMO_PASSWORD ?? '';
+    const user = username ?? process.env.SAUCE_DEMO_USERNAME ?? "";
+    const pass = password ?? process.env.SAUCE_DEMO_PASSWORD ?? "";
 
     // Ensure elements are visible and enabled before interaction
-    await this.usernameInput.waitFor({ state: 'visible' });
-    await this.passwordInput.waitFor({ state: 'visible' });
-    await this.loginButton.waitFor({ state: 'visible' });
+    await this.usernameInput.waitFor({ state: "visible" });
+    await this.passwordInput.waitFor({ state: "visible" });
+    await this.loginButton.waitFor({ state: "visible" });
 
     // Enter credentials
     await this.usernameInput.fill(user);
@@ -54,6 +54,6 @@ export class LoginPage {
     await this.loginButton.click();
 
     // Wait for navigation to complete
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForLoadState("networkidle");
   }
 }

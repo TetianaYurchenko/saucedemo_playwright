@@ -1,7 +1,7 @@
-import { test as base } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-import { InventoryPage } from '../pages/InventoryPage';
-import { CheckoutPage } from '../pages/CheckoutPage';
+import { test as base } from "@playwright/test";
+import { LoginPage } from "../pages/LoginPage";
+import { InventoryPage } from "../pages/InventoryPage";
+import { CheckoutPage } from "../pages/CheckoutPage";
 
 type PageFixtures = {
   loginPage: LoginPage;
@@ -23,4 +23,4 @@ export const test = base.extend<PageFixtures>({
   },
 });
 
-export { expect } from '@playwright/test';
+export { expect } from "@playwright/test";

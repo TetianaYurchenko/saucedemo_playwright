@@ -11,7 +11,8 @@
     "test:report": "playwright show-report",
     "install:browsers": "playwright install",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "prepare": "husky install"
   },
   "keywords": [
     "playwright",
@@ -25,6 +26,7 @@
     "@faker-js/faker": "^10.0.0",
     "@playwright/test": "^1.55.0",
     "@types/node": "^20.0.0",
+    "husky": "^9.1.7",
     "monocart-reporter": "^2.9.21",
     "prettier": "^3.0.0",
     "typescript": "^5.0.0"

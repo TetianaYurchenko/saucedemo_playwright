@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from '@playwright/test';
+import { expect, Locator, Page } from "@playwright/test";
 
 export class CheckoutPage {
   readonly page: Page;
@@ -20,7 +20,7 @@ export class CheckoutPage {
     this.finishButton = page.locator('[data-test="finish"]');
     this.confirmationMessage = page.locator('[data-test="complete-header"]');
   }
-  
+
   async gotoCheckout() {
     await this.shoppingCartLink.click();
     await this.page.waitForURL(/\/cart\.html$/);
@@ -28,7 +28,11 @@ export class CheckoutPage {
     await this.page.waitForURL(/\/checkout-step-one\.html$/);
   }
 
-  async completeCheckoutInformation(firstName: string, lastName: string, postalCode: string) {
+  async completeCheckoutInformation(
+    firstName: string,
+    lastName: string,
+    postalCode: string,
+  ) {
     await this.firstNameInput.fill(firstName);
     await this.lastNameInput.fill(lastName);
     await this.postalCodeInput.fill(postalCode);
