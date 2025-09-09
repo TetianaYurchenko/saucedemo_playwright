@@ -14,9 +14,9 @@ jobs:
         project: [chromium, firefox, webkit]
 
     env:
-      PLOOTO_USERNAME: ${{ secrets.SAUCE_DEMO_USERNAME }}
-      PLOOTO_PASSWORD: ${{ secrets.SAUCE_DEMO_PASSWORD }}
-      PLOOTO_BASE_URL: ${{ secrets.SAUCE_DEMO_BASE_URL }}
+      SAUCE_DEMO_USERNAME: ${{ secrets.SAUCE_DEMO_USERNAME }}
+      SAUCE_DEMO_PASSWORD: ${{ secrets.SAUCE_DEMO_PASSWORD }}
+      SAUCE_DEMO_BASE_URL: ${{ secrets.SAUCE_DEMO_BASE_URL }}
 
     steps:
       - uses: actions/checkout@v4
