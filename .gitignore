@@ -3,6 +3,7 @@ node_modules/
 
 # Playwright test results
 monocart-report/
+playwright-report/
 test-results/
 
 # Environment files

@@ -11,22 +11,32 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+
   reporter: [
-    ["html", { outputFolder: "test-results", open: "always" }],
+    ['list'],
+    ['html', 
+      { 
+        name: "Sauce Demo Playwright Report",
+        outputFile: './playwright-report/index.html', 
+        attachmentsDir: "test-results/attachments", 
+        open: 'always', 
+      }],
     [
       "monocart-reporter",
       {
-        name: "Sauce Demo Test Report",
-        outputFile: "./monocart-report/index.html",
+        name: "Sauce Demo Monocart Report",
+        outputFile: "./monocart-report/monocart-index.html",
+        attachmentsDir: "test-results/attachments",
       },
     ],
   ],
   use: {
     baseURL: process.env.SAUCE_DEMO_BASE_URL,
-    trace: "on-first-retry",
-    screenshot: "only-on-failure",
-    video: "retain-on-failure",
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    actionTimeout: 10000,
+    navigationTimeout: 30000,
   },
   projects: [
     {
